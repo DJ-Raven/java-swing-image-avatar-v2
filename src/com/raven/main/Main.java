@@ -27,29 +27,29 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imageAvatar1 = new com.raven.avatar.ImageAvatar();
+        imageAvatar2 = new com.raven.avatar.ImageAvatar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        imageAvatar1.setBackground(new java.awt.Color(153, 255, 0));
-        imageAvatar1.setForeground(new java.awt.Color(51, 51, 255));
-        imageAvatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/main/p1.jpg"))); // NOI18N
+        imageAvatar2.setBackground(new java.awt.Color(153, 255, 0));
+        imageAvatar2.setForeground(new java.awt.Color(51, 51, 255));
+        imageAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/main/p1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addGap(580, 580, 580))
+                .addGap(147, 147, 147)
+                .addComponent(imageAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(435, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addGap(287, 287, 287))
+                .addGap(58, 58, 58)
+                .addComponent(imageAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,6 +92,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.avatar.ImageAvatar imageAvatar1;
+    private com.raven.avatar.ImageAvatar imageAvatar2;
     // End of variables declaration//GEN-END:variables
 }

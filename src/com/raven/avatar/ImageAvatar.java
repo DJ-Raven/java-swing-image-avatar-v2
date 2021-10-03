@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
@@ -43,7 +45,7 @@ public class ImageAvatar extends JComponent {
             int y = height / 2 - diameter / 2;
             int border = borderSize * 2;
             diameter -= border;
-            Dimension size = getAutoSize(icon, diameter);
+            Rectangle size = getAutoSize(icon, diameter);
             BufferedImage img = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2_img = img.createGraphics();
             g2_img.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -51,7 +53,7 @@ public class ImageAvatar extends JComponent {
             Composite composite = g2_img.getComposite();
             g2_img.setComposite(AlphaComposite.SrcIn);
             g2_img.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-            g2_img.drawImage(toImage(icon), 0, 0, size.width, size.height, null);
+            g2_img.drawImage(toImage(icon), size.x, size.y, size.width, size.height, null);
             g2_img.setComposite(composite);
             g2_img.dispose();
             Graphics2D g2 = (Graphics2D) grphcs;
@@ -71,13 +73,13 @@ public class ImageAvatar extends JComponent {
         super.paintComponent(grphcs);
     }
 
-    private Dimension getAutoSize(Icon image, int size) {
+    private Rectangle getAutoSize(Icon image, int size) {
         int w = size;
         int h = size;
         int iw = image.getIconWidth();
         int ih = image.getIconHeight();
         double xScale = (double) w / iw;
-        double yScale = (double) h / iw;
+        double yScale = (double) h / ih;
         double scale = Math.max(xScale, yScale);
         int width = (int) (scale * iw);
         int height = (int) (scale * ih);
@@ -87,7 +89,11 @@ public class ImageAvatar extends JComponent {
         if (height < 1) {
             height = 1;
         }
-        return new Dimension(width, height);
+        int cw = size;
+        int ch =size;
+        int x = (cw - width) / 2;
+        int y = (ch - height) / 2;
+        return new Rectangle(new Point(x, y), new Dimension(width, height));
     }
 
     private Image toImage(Icon icon) {
